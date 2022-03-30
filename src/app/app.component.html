@@ -2,10 +2,12 @@
   <div class="contenedor-cabecera">
     <app-cabecera></app-cabecera>
   </div>
-  <div class="contenedor-filtro">
-    <app-filtro></app-filtro>
-  </div>
-  <div class="contenedor-tabla-datos">
-    <app-tabla-datos></app-tabla-datos>
+  <div class="contenedor-cuerpo">
+    <div class="contenedor-filtro">
+      <app-filtro></app-filtro>
+    </div>
+    <div class="contenedor-tabla-datos">
+      <app-tabla-datos [datos_tabla]="datos"></app-tabla-datos>
+    </div>
   </div>
 </div>
