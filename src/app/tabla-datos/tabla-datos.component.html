@@ -1,1 +1,44 @@
-<p>tabla-datos works!</p>
+<div class="contenedor-datos">
+  <div class="contenedor-tabla">
+    <table class="table">
+      <tr class="cabecera_tabla">
+        <td class="centro"></td>
+        <td class="izquierda">PRODUCTO</td>
+        <td class="centro"></td>
+        <td class="centro">Q.</td>
+        <td class="centro">ESTADO</td>
+        <td class="izquierda">FECHA</td>
+        <td class="centro"></td>
+        <td class="derecha">nºCliente</td>
+        <td class="izquierda">Cliente</td>
+      </tr>
+      <tr
+        class="elementos_tabla"
+        *ngFor="
+          let item of datos_tabla | paginate: { itemsPerPage: 20, currentPage: page }">
+        <td class="imagen"><img class="logo_marca" src="{{ item.logo }}" alt="logo" /></td>
+        <td class="izquierda">{{ item.referencia }}</td>
+        <td class="info centro">
+            <img class="logo_info" src="/assets/informacion.png" alt="{{item.observacion}}">
+         
+        </td>
+        <td class="centro">x{{ item.cantidad }}</td>
+        <td class="centro cetrar_estado "><label class="estado">{{ item.estado }}</label></td>
+        <td class="izquierda">{{ item.fecha }}</td>
+        <td class="tipo" *ngIf="item.tipo === 'Mesa'; else ruta">
+            <label for="" class="mesa">M</label>
+          </td>
+          <ng-template #ruta><label class="ruta">R</label></ng-template>
+        <td class="derecha">{{ item.codigo_cliente }}</td>
+        <td class="izquierda">{{ item.alias_cliente }}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="contenedor-paginacion">
+    <pagination-controls
+      (pageChange)="page = $event"
+      previousLabel="Anterior"
+      nextLabel="Siguiente"
+    ></pagination-controls>
+  </div>
+</div>
