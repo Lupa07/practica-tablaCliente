@@ -1,0 +1,32 @@
+.contenedor-principal {
+  height: 100vh;
+  display: grid;
+  background-color: blue;
+  grid-template-rows: 40px 1fr;
+  grid-template-areas: "cabecera" "cuerpo";
+  .contenedor-cabecera {
+    height: 100%;
+    grid-area: cabecera;
+    background-color: aqua;
+  }
+  .contenedor-cuerpo {
+    height: 100%;
+    grid-area: cuerpo;
+    background-image: url("/assets/fondo.jpg");
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas: "filtro tabla";
+    gap: 5px;
+    .contenedor-filtro {
+      
+      height: 100%;
+      grid-area: filtro;
+    }
+    .contenedor-tabla-datos {
+      height: 100%;
+      grid-area: tabla;
+      
+    }
+  }
+}

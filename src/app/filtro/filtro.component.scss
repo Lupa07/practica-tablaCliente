@@ -1,0 +1,31 @@
+.contenedor-inputs{
+    height: 100%;
+    background-color: rgba(245, 245, 245, 0.712);
+    padding: 5px;
+    border-radius: 10px;
+
+
+
+    .contenedor-estado{
+       background-color: white;
+        display: grid ;
+        float: left;
+        grid-template-columns: 255px 1fr;
+        grid-template-areas: "check boton";
+       
+        padding: auto;
+        .contenedor-check{
+            
+            height: 100%;
+            grid-area: check;
+            padding-left: 5px;
+            border-radius: 10px;
+
+        }
+        .boton{
+            
+            height: 100%;
+            grid-area: boton;
+        }
+    }
+}

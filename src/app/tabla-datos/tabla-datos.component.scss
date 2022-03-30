@@ -1,0 +1,88 @@
+.contenedor-datos {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 35px;
+  grid-template-areas: "tabla" "paginas";
+  background-color: rgba(250, 235, 215, 0.61);
+
+  border-radius: 15px;
+  .contenedor-tabla {
+    height: 100%;
+    grid-area: tabla;
+
+    .table {
+      .cabecera_tabla {
+        border-bottom: 2px solid black;
+      }
+      .elementos_tabla {
+        border-style: none;
+        td {
+          height: 15px;
+        }
+        .izquierda {
+          text-align: left;
+          //padding-left: 5px;
+        }
+        .centro {
+          text-align: center;
+        }
+        .derecha {
+          text-align: right;
+        }
+        .estado {
+          background-color: black;
+          font-size: 15px;
+          color: white;
+          text-align: center;
+          padding-left: 5px;
+          padding-right: 5px;
+          border-radius: 5px;
+        }
+        .mesa {
+          background-color: rgb(58, 58, 255);
+          font-size: 15px;
+          color: white;
+          text-align: center;
+          width: 25px;
+          height: 25px;
+          border-radius: 5px;
+        }
+        .ruta {
+          background-color: green;
+          font-size: 15px;
+          width: 25px;
+          height: 25px;
+          color: white;
+          text-align: center;
+          border-radius: 5px;
+        }
+        .imagen {
+          width: 5px;
+          text-align: center;
+          .logo_marca {
+            align-items: center;
+            height: 35px;
+            width: 75px;
+          }
+        }
+        .info {
+          .logo_info {
+            height: 35px;
+            width: 35px;
+          }
+        }
+      }
+
+      .elementos_tabla {
+        
+      }
+      .elementos_tabla:hover {
+        background-color: rgba(250, 235, 215, 0.781);
+      }
+    }
+  }
+}
+.contenedor-paginacion {
+  height: 100%;
+  grid-area: paginas;
+}
