@@ -4,15 +4,27 @@
   grid-template-rows: 1fr 35px;
   grid-template-areas: "tabla" "paginas";
   background-color: rgba(250, 235, 215, 0.61);
-
   border-radius: 15px;
   .contenedor-tabla {
     height: 100%;
     grid-area: tabla;
 
     .table {
+      text-align: center;
+      
       .cabecera_tabla {
         border-bottom: 2px solid black;
+        font-weight: bold;
+        .derecha {
+          text-align: right;
+        }
+        .izquierda {
+          text-align: left;
+          //padding-left: 5px;
+        }
+        .centro {
+          text-align: center;
+        }
       }
       .elementos_tabla {
         border-style: none;
@@ -28,9 +40,10 @@
         }
         .derecha {
           text-align: right;
+          padding-right: 5px;
         }
-        .estado {
-          background-color: black;
+        .entregada {
+          background-color: rgb(255, 0, 0);
           font-size: 15px;
           color: white;
           text-align: center;
@@ -38,14 +51,36 @@
           padding-right: 5px;
           border-radius: 5px;
         }
-        .mesa {
-          background-color: rgb(58, 58, 255);
+        .pendiente{
+          background-color: rgb(0, 153, 255);
           font-size: 15px;
           color: white;
           text-align: center;
+          padding-left: 5px;
+          padding-right: 5px;
+          border-radius: 5px;
+          margin-top: 6px;
+        }
+        .desconsolidada{
+          background-color: rgb(0, 38, 252);
+          font-size: 15px;
+          color: white;
+          text-align: center;
+          padding-left: 5px;
+          padding-right: 5px;
+          border-radius: 5px;
+          margin-top: 7px;
+        }
+        .mesa {
+          background-color: blue;
+          font-size: 15px;
           width: 25px;
           height: 25px;
+          color: white;
+          text-align: center;
           border-radius: 5px;
+          padding-top: 1px;
+          padding-left: 6px;
         }
         .ruta {
           background-color: green;
@@ -55,6 +90,8 @@
           color: white;
           text-align: center;
           border-radius: 5px;
+          padding-top: 1px;
+          margin-top: 8px;
         }
         .imagen {
           width: 5px;
@@ -74,7 +111,6 @@
       }
 
       .elementos_tabla {
-        
       }
       .elementos_tabla:hover {
         background-color: rgba(250, 235, 215, 0.781);
@@ -85,4 +121,5 @@
 .contenedor-paginacion {
   height: 100%;
   grid-area: paginas;
+  text-align: right;
 }

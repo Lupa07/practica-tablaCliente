@@ -7,7 +7,7 @@
         <td class="centro"></td>
         <td class="centro">Q.</td>
         <td class="centro">ESTADO</td>
-        <td class="izquierda">FECHA</td>
+        <td class="centro">FECHA</td>
         <td class="centro"></td>
         <td class="derecha">nºCliente</td>
         <td class="izquierda">Cliente</td>
@@ -15,20 +15,41 @@
       <tr
         class="elementos_tabla"
         *ngFor="
-          let item of datos_tabla | paginate: { itemsPerPage: 20, currentPage: page }">
-        <td class="imagen"><img class="logo_marca" src="{{ item.logo }}" alt="logo" /></td>
+          let item of datos_tabla
+            | paginate: { itemsPerPage: 20, currentPage: page }
+        "
+      >
+        <td class="imagen">
+          <img class="logo_marca" src="{{ item.logo }}" alt="logo" />
+        </td>
         <td class="izquierda">{{ item.referencia }}</td>
         <td class="info centro">
-            <img class="logo_info" src="/assets/informacion.png" alt="{{item.observacion}}">
-         
+          <img
+            class="logo_info"
+            src="/assets/informacion.png"
+            alt=""
+          />
         </td>
         <td class="centro">x{{ item.cantidad }}</td>
-        <td class="centro cetrar_estado "><label class="estado">{{ item.estado }}</label></td>
-        <td class="izquierda">{{ item.fecha }}</td>
-        <td class="tipo" *ngIf="item.tipo === 'Mesa'; else ruta">
-            <label for="" class="mesa">M</label>
-          </td>
-          <ng-template #ruta><label class="ruta">R</label></ng-template>
+        <td *ngIf="item.estado==='Entregada';else pendiente">
+          <label class="entregada">{{ item.estado }}</label>
+        </td>
+        <ng-template #pendiente>
+          <label class="pendiente" *ngIf="item.estado==='Pendiente';else Desconsolidada">{{ item.estado }}</label>
+        </ng-template>
+        <ng-template #Desconsolidada>
+          <label class="desconsolidada">{{ item.estado }}</label>
+        </ng-template>
+        <td class="fecha">
+          <strong>{{ extraerhora(item.fecha) }}</strong>
+          {{ extraerfecha(item.fecha) }}
+        </td>
+        <td *ngIf="item.tipo === 'Mesa'; else ruta">
+          <label for="" class="mesa">M</label>
+        </td>
+        <ng-template #ruta>
+          <label class="ruta">R</label>
+        </ng-template>
         <td class="derecha">{{ item.codigo_cliente }}</td>
         <td class="izquierda">{{ item.alias_cliente }}</td>
       </tr>
