@@ -5,10 +5,12 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './tabla-datos.component.html',
   styleUrls: ['./tabla-datos.component.scss']
 })
+
 export class TablaDatosComponent implements OnInit {
 
   @Input () datos_tabla:any;
   public page: number=0;
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -65,3 +67,5 @@ export class TablaDatosComponent implements OnInit {
     return fecha_extraida;
   }
 }
+
+

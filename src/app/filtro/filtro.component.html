@@ -47,19 +47,20 @@
   </div>
   <div class="contenedor-fecha">
     <label for="fecha">Fecha:</label>
-    <div class="input-group mb-3">
+    <div class="col-xs-12 col-12 col-md-10 form-group mb-3">
       <input
         type="text"
+        placeholder="Daterangepicker"
         class="form-control"
-        placeholder="Usuario"
-        aria-label="Recipient's username"
-        aria-describedby="basic-addon2"
+        bsDaterangepicker
+        [bsConfig]="{ isAnimated: true }"
       />
       <div class="input-group-append">
         <button class="btn btn-outline-danger vaciar" type="button">X</button>
       </div>
     </div>
   </div>
+
   <div class="contenedor-tipo">
     <label for="tipos">Tipos:</label>
 
@@ -92,7 +93,8 @@
     </div>
   </div>
   <div class="buscar">
-    <button type="button" class="btn btn-primary btn-lg btn-block ">Buscar</button>
+    <button type="button" class="btn btn-primary btn-lg btn-block">
+      Buscar
+    </button>
   </div>
-  
 </div>

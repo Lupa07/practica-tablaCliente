@@ -16,26 +16,41 @@
         class="elementos_tabla"
         *ngFor="
           let item of datos_tabla
-            | paginate: { itemsPerPage: 20, currentPage: page }
+            | paginate: { itemsPerPage: 21, currentPage: page }
         "
       >
         <td class="imagen">
           <img class="logo_marca" src="{{ item.logo }}" alt="logo" />
         </td>
         <td class="izquierda">{{ item.referencia }}</td>
-        <td class="info centro">
+        <td *ngIf="item.observacion=='';else contenidoObservacion" class="info centro">
           <img
             class="logo_info"
             src="/assets/informacion.png"
             alt=""
+            popover="{{ item.observacion }}"
+            triggers="mouseenter:mouseleave"
           />
         </td>
+        <ng-template #contenidoObservacion>
+          <img style="width: 20px;height: 20px;"
+          class="logo_info"
+          src="/assets/adv.png"
+          alt=""
+          popover="{{ item.observacion }}"
+          triggers="mouseenter:mouseleave"
+        />
+        </ng-template>
         <td class="centro">x{{ item.cantidad }}</td>
-        <td *ngIf="item.estado==='Entregada';else pendiente">
+        <td *ngIf="item.estado === 'Entregada'; else pendiente">
           <label class="entregada">{{ item.estado }}</label>
         </td>
         <ng-template #pendiente>
-          <label class="pendiente" *ngIf="item.estado==='Pendiente';else Desconsolidada">{{ item.estado }}</label>
+          <label
+            class="pendiente"
+            *ngIf="item.estado === 'Pendiente'; else Desconsolidada"
+            >{{ item.estado }}</label
+          >
         </ng-template>
         <ng-template #Desconsolidada>
           <label class="desconsolidada">{{ item.estado }}</label>

@@ -3,7 +3,7 @@
   display: grid;
   grid-template-rows: 1fr 35px;
   grid-template-areas: "tabla" "paginas";
-  background-color: rgba(250, 235, 215, 0.61);
+  background-color: rgba(253, 252, 251, 0.89);
   border-radius: 15px;
   .contenedor-tabla {
     height: 100%;
@@ -11,7 +11,7 @@
 
     .table {
       text-align: center;
-      
+
       .cabecera_tabla {
         border-bottom: 2px solid black;
         font-weight: bold;
@@ -27,6 +27,11 @@
         }
       }
       .elementos_tabla {
+        .botonInfo {
+          width: 35px;
+          height: 35px;
+          border: none;
+        }
         border-style: none;
         td {
           height: 15px;
@@ -43,16 +48,18 @@
           padding-right: 5px;
         }
         .entregada {
-          background-color: rgb(255, 0, 0);
+          background-color: green;
           font-size: 15px;
           color: white;
           text-align: center;
+          padding-top: 0px;
+          padding-bottom: 0px;
           padding-left: 5px;
           padding-right: 5px;
           border-radius: 5px;
         }
-        .pendiente{
-          background-color: rgb(0, 153, 255);
+        .pendiente {
+          background-color: black;
           font-size: 15px;
           color: white;
           text-align: center;
@@ -61,7 +68,7 @@
           border-radius: 5px;
           margin-top: 6px;
         }
-        .desconsolidada{
+        .desconsolidada {
           background-color: rgb(0, 38, 252);
           font-size: 15px;
           color: white;
@@ -109,17 +116,15 @@
           }
         }
       }
+    }
 
-      .elementos_tabla {
-      }
-      .elementos_tabla:hover {
-        background-color: rgba(250, 235, 215, 0.781);
-      }
+    .elementos_tabla:hover {
+      background-color: rgba(250, 235, 215, 0.781);
     }
   }
-}
-.contenedor-paginacion {
-  height: 100%;
-  grid-area: paginas;
-  text-align: right;
+  .contenedor-paginacion {
+    height: 100%;
+    grid-area: paginas;
+    text-align: right;
+  }
 }
