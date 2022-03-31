@@ -10,7 +10,7 @@ export class TablaDatosComponent implements OnInit {
 
   @Input () datos_tabla:any;
   public page: number=0;
-  
+  @Input () resutltadoBusqueda:any;
   constructor() { }
 
   ngOnInit(): void {

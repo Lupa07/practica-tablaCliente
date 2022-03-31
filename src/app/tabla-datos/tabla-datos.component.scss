@@ -1,8 +1,8 @@
 .contenedor-datos {
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr 35px;
-  grid-template-areas: "tabla" "paginas";
+  grid-template-rows: 1fr 42px;
+  grid-template-areas: "tabla" "pie";
   background-color: rgba(253, 252, 251, 0.89);
   border-radius: 15px;
   .contenedor-tabla {
@@ -122,9 +122,24 @@
       background-color: rgba(250, 235, 215, 0.781);
     }
   }
-  .contenedor-paginacion {
+  .contenedor-pie {
     height: 100%;
-    grid-area: paginas;
-    text-align: right;
+    grid-area: pie;
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    justify-content: space-between;
+
+    p{
+      padding-left: 10px;
+    }
+    .contenedor-paginacion {
+      height: 100%;
+      padding: 0;
+      height: 35px;
+      align-items: center;
+      justify-content: center;
+      
+    }
   }
 }

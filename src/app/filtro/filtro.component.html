@@ -1,22 +1,24 @@
 <div class="contenedor-inputs">
+  <label for="cliente">Cliente:</label>
   <div class="contenedor-cliente">
-    <label for="cliente">Cliente:</label>
     <div class="input-group mb-3">
       <input
         type="text"
         class="form-control"
-        placeholder="Recipient's username"
+        placeholder="Cliente"
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
+        [(ngModel)]="filtro.cliente"
+        #Name
       />
-
       <div class="input-group-append">
-        <button class="btn btn-outline-danger vaciar" type="button">X</button>
+        <button class="btn btn-outline-danger vaciar" type="button" (click)="Name.value=''">X</button>
       </div>
     </div>
   </div>
+
+  <label for="usuario">Usuario:</label>
   <div class="contenedor-usuario">
-    <label for="usuario">Usuario:</label>
     <div class="input-group mb-3">
       <input
         type="text"
@@ -24,14 +26,16 @@
         placeholder="Usuario"
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
+        [(ngModel)]="filtro.usuario"
+        #usuario
       />
       <div class="input-group-append">
-        <button class="btn btn-outline-danger vaciar" type="button">X</button>
+        <button class="btn btn-outline-danger vaciar" type="button" (click)="usuario.value=''">X</button>
       </div>
     </div>
   </div>
+  <label for="referencia">Referencia:</label>
   <div class="contenedor-referencia">
-    <label for="referencia">Referencia:</label>
     <div class="input-group mb-3">
       <input
         type="text"
@@ -39,31 +43,33 @@
         placeholder="Usuario"
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
+        [(ngModel)]="filtro.referencia"
+        #referencia
       />
       <div class="input-group-append">
-        <button class="btn btn-outline-danger vaciar" type="button">X</button>
-      </div>
-    </div>
-  </div>
-  <div class="contenedor-fecha">
-    <label for="fecha">Fecha:</label>
-    <div class="col-xs-12 col-12 col-md-10 form-group mb-3">
-      <input
-        type="text"
-        placeholder="Daterangepicker"
-        class="form-control"
-        bsDaterangepicker
-        [bsConfig]="{ isAnimated: true }"
-      />
-      <div class="input-group-append">
-        <button class="btn btn-outline-danger vaciar" type="button">X</button>
+        <button class="btn btn-outline-danger vaciar" type="button" (click)="referencia.value=''">X</button>
       </div>
     </div>
   </div>
 
+  <label class="fecha">Fecha:</label>
+  <div class="input-group input">
+    <input
+      type="text"
+      placeholder="Fecha"
+      class="form-control"
+      bsDaterangepicker
+      [bsConfig]="{ isAnimated: true }"
+      placement="right"
+      #fecha
+    />
+    <div class="input-group-append">
+      <button type="button" class="btn btn-outline-danger" (click)="fecha.value=''">X</button>
+    </div>
+  </div> <br>
+
+  <label for="tipos">Tipos:</label>
   <div class="contenedor-tipo">
-    <label for="tipos">Tipos:</label>
-
     <div class="input-group mb-3">
       <input
         type="text"
@@ -71,9 +77,11 @@
         placeholder="Usuario"
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
+        [(ngModel)]="filtro.tipo"
+        #tipo
       />
       <div class="input-group-append">
-        <button class="btn btn-outline-danger vaciar" type="button">X</button>
+        <button class="btn btn-outline-danger vaciar" type="button" (click)="tipo.value=''">X</button>
       </div>
     </div>
   </div>
@@ -89,11 +97,15 @@
       <input type="checkbox" />Incidencia<br />
     </div>
     <div class="input-group-append boton">
-      <button class="btn btn-outline-danger vaciar" type="button">X</button>
+      <button class="btn btn-outline-danger vaciar" type="button" >X</button>
     </div>
   </div>
   <div class="buscar">
-    <button type="button" class="btn btn-primary btn-lg btn-block">
+    <button
+      type="submit"
+      class="btn btn-primary btn-lg btn-block"
+      (click)="buscar()"
+    >
       Buscar
     </button>
   </div>

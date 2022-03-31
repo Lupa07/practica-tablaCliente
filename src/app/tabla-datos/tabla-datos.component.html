@@ -23,7 +23,10 @@
           <img class="logo_marca" src="{{ item.logo }}" alt="logo" />
         </td>
         <td class="izquierda">{{ item.referencia }}</td>
-        <td *ngIf="item.observacion=='';else contenidoObservacion" class="info centro">
+        <td
+          *ngIf="item.observacion == ''; else contenidoObservacion"
+          class="info centro"
+        >
           <img
             class="logo_info"
             src="/assets/informacion.png"
@@ -33,13 +36,14 @@
           />
         </td>
         <ng-template #contenidoObservacion>
-          <img style="width: 20px;height: 20px;"
-          class="logo_info"
-          src="/assets/adv.png"
-          alt=""
-          popover="{{ item.observacion }}"
-          triggers="mouseenter:mouseleave"
-        />
+          <img
+            style="width: 20px; height: 20px"
+            class="logo_info"
+            src="/assets/adv.png"
+            alt=""
+            popover="{{ item.observacion }}"
+            triggers="mouseenter:mouseleave"
+          />
         </ng-template>
         <td class="centro">x{{ item.cantidad }}</td>
         <td *ngIf="item.estado === 'Entregada'; else pendiente">
@@ -70,11 +74,16 @@
       </tr>
     </table>
   </div>
-  <div class="contenedor-paginacion">
-    <pagination-controls
-      (pageChange)="page = $event"
-      previousLabel="Anterior"
-      nextLabel="Siguiente"
-    ></pagination-controls>
+  <div class="contenedor-pie">
+    
+      <p>Lineas: {{ datos_tabla.length }}</p>
+    
+      <div class="paginacion">
+      <pagination-controls class="contenedor-paginacion"
+        (pageChange)="page = $event"
+        previousLabel="Anterior"
+        nextLabel="Siguiente"
+      ></pagination-controls>
+    </div>
   </div>
 </div>

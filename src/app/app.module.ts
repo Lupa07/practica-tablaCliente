@@ -10,7 +10,7 @@ import {NgxPaginationModule} from "ngx-pagination";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { PopoverModule } from 'ngx-bootstrap/popover'; 
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,12 +20,14 @@ import { PopoverModule } from 'ngx-bootstrap/popover';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
     TooltipModule.forRoot(),
     BsDatepickerModule.forRoot(),
     PopoverModule.forRoot()
+    
     
   ],
   providers: [],
