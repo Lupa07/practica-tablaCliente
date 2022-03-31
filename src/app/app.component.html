@@ -7,7 +7,7 @@
       <app-filtro [datos_tabla]="datos" (buscarFiltro)="buscarFiltroMaestro($event)"></app-filtro>
     </div>
     <div class="contenedor-tabla-datos">
-      <app-tabla-datos [datos_tabla]="datos" [resutltadoBusqueda]="filtro"></app-tabla-datos>
+      <app-tabla-datos [datos_tabla]="datos" [resutltadoBusqueda]=" buscarFiltroMaestro"></app-tabla-datos>
     </div>
   </div>
 </div>
