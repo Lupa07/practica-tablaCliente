@@ -10,10 +10,13 @@ export class TablaDatosComponent implements OnInit {
 
   @Input () datos_tabla:any;
   public page: number=0;
-  @Input () resutltadoBusqueda:any;
+  
+
+  
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
   extraerhora(fecha: String) {
@@ -66,6 +69,9 @@ export class TablaDatosComponent implements OnInit {
     fecha_extraida = fecha_extraida + ' ' + fecha.substring(2, 4);
     return fecha_extraida;
   }
+
+  
+  
 }
 
 

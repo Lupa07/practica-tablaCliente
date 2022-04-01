@@ -1,14 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'practica-tablaCliente';
-  
-  filtro:any;
+
+  ngOnInit(): void {
+    this.datosAmandar = this.datos;
+  }
   datos: any = [
     { "id": "1", "referencia": "02108", "logo": "https://logistics.beateam.es/azurglobal/storage/250/MTC.png", "usuario": "Morillo", "observacion": "", "cantidad": "1", "estado": "Entregada", "fecha": "2021-09-29 00:51:39", "tipo": "Mesa", "codigo_cliente": "287.10", "alias_cliente": "POLIVISO VISO" },
     { "id": "2", "referencia": "KDP457490", "logo": "https://logistics.beateam.es/azurglobal/storage/269/SNR.png", "usuario": "Morillo", "observacion": "407-L", "cantidad": "2", "estado": "Pendiente", "fecha": "2021-09-11 09:25:08", "tipo": "Ruta", "codigo_cliente": "257.10", "alias_cliente": "TURECAMBIO" },
@@ -108,8 +110,33 @@ export class AppComponent {
     { "id": "99", "referencia": "BMTC0918", "logo": "https://logistics.beateam.es/azurglobal/storage/246/MOG.png", "usuario": "Morillo", "observacion": "", "cantidad": "1", "estado": "Pendiente", "fecha": "2021-09-04 13:12:28", "tipo": "Mesa", "codigo_cliente": "49.10", "alias_cliente": "HISPALIS" },
     { "id": "100", "referencia": "3182654146", "logo": "https://logistics.beateam.es/azurglobal/storage/263/SAC.png", "usuario": "Froldan", "observacion": "ALEJANDRO----DEJAR FALCON", "cantidad": "1", "estado": "Pendiente", "fecha": "2021-09-10 06:29:35", "tipo": "Mesa", "codigo_cliente": "303.10", "alias_cliente": "SURTRES (SEVILLA)" }
   ]
+  filtrado: any;
+  datosAmandar: any = []
 
-  buscarFiltroMaestro(buscarFiltro:any){
-    this.filtro=Object.assign({},buscarFiltro);
+
+  buscarFiltroMaestro(buscarFiltro: any) {
+    this.filtrado = Object.assign({}, buscarFiltro);
+    console.log(this.filtrado);
+    this.cargarDatos();
+    console.log(this.datosAmandar)
+
+  }
+
+  cargarDatos() {
+    this.datosAmandar = [];
+    console.log('antes del for')
+    for (let i = 0; i <= this.datos.length; i++) {
+      console.log(this.datos[i].alias_cliente)
+      if (this.datos[i].alias_cliente.toLowerCase().indexOf(this.filtrado.cliente.toLowerCase()) >= 0) {
+        if (this.datos[i].usuario.toLowerCase().indexOf(this.filtrado.usuario.toLowerCase()) >= 0) {
+          if (this.datos[i].referencia.toLowerCase().indexOf(this.filtrado.referencia.toLowerCase()) >= 0) {
+            
+            console.log('primer if');
+            this.datosAmandar.push(this.datos[i])
+          }
+        }
+      } 
+    }
   }
 }
+  
