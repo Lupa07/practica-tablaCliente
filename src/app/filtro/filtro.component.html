@@ -90,16 +90,24 @@
   <label for="estado">Estado:</label> <br />
   <div class="contenedor-estado">
     <div class="contenedor-check">
-      <input type="checkbox" />Pendinte <br />
-      <input type="checkbox" />Recogiendo<br />
-      <input type="checkbox" />Recogida<br />
-      <input type="checkbox" />Desconsolidando<br />
-      <input type="checkbox" />Desconsolidada<br />
-      <input type="checkbox" />Entregada<br />
-      <input type="checkbox" />Incidencia<br />
+      <input type="checkbox" #check [(ngModel)]="filtro.pendiente"/>Pendinte <br />
+      <input type="checkbox" #check [(ngModel)]="filtro.recogiendo"/>Recogiendo<br />
+      <input type="checkbox" #check [(ngModel)]="filtro.recogida"/>Recogida<br />
+      <input type="checkbox" #check [(ngModel)]="filtro.desconsolidando"/>Desconsolidando<br />
+      <input type="checkbox" #check [(ngModel)]="filtro.desconsolidada"/>Desconsolidada<br />
+      <input type="checkbox" #check [(ngModel)]="filtro.entregada"/>Entregada<br />
+      <input type="checkbox" #check [(ngModel)]="filtro.incidencia"/>Incidencia<br />
     </div>
     <div class="input-group-append boton">
-      <button class="btn btn-outline-danger vaciar" type="button" >X</button>
+      <button class="btn btn-outline-danger vaciar" type="button" (click)="
+      filtro.incidencia = false;
+      filtro.entregada = false;
+      filtro.desconsolidada = false;
+      filtro.desconsolidando = false;
+      filtro.recogida = false;
+      filtro.recogiendo = false;
+      filtro.pendiente = false
+    ">X</button>
     </div>
   </div>
   

@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'practica-tablaCliente';
+  
 
   ngOnInit(): void {
     this.datosAmandar = this.datos;
@@ -112,7 +113,7 @@ export class AppComponent implements OnInit {
   ]
   filtrado: any;
   datosAmandar: any = []
-
+  
 
   buscarFiltroMaestro(buscarFiltro: any) {
     this.filtrado = Object.assign({}, buscarFiltro);
@@ -130,13 +131,23 @@ export class AppComponent implements OnInit {
       if (this.datos[i].alias_cliente.toLowerCase().indexOf(this.filtrado.cliente.toLowerCase()) >= 0) {
         if (this.datos[i].usuario.toLowerCase().indexOf(this.filtrado.usuario.toLowerCase()) >= 0) {
           if (this.datos[i].referencia.toLowerCase().indexOf(this.filtrado.referencia.toLowerCase()) >= 0) {
-            
-            console.log('primer if');
+            if(this.datos[i].tipo.toLowerCase().indexOf(this.filtrado.tipo.toLowerCase())>=0){
+              
+                
             this.datosAmandar.push(this.datos[i])
+              
+                
+              
+              
+              
+            }
+            
           }
         }
       } 
     }
   }
+  
+ 
 }
   

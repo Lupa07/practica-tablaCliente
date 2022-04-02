@@ -19,6 +19,13 @@ export class FiltroComponent implements OnInit {
     'referencia':'',
     'tipo':'',
     'fecha':'',
+    'pendiente:boolean' : false,
+    'recogiendo:boolean' : false,
+    'recogida:boolean' : false,
+    'desconsolidando:boolean ': false,
+    'desconsolidada:boolean' : false,
+    'entregada:boolean' :false,
+    'incidencia:boolean' : false
 
 
   };
@@ -45,7 +52,13 @@ export class FiltroComponent implements OnInit {
       'referencia':'',
       'tipo':'',
       'fecha':'',
-  
+      'pendiente:boolean' : false,
+      'recogiendo:boolean' : false,
+      'recogida:boolean' : false,
+      'desconsolidando:boolean ': false,
+      'desconsolidada:boolean' : false,
+      'entregada:boolean' :false,
+      'incidencia:boolean' : false
   
     };
 
