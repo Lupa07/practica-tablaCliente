@@ -1,39 +1,47 @@
-.contenedor-inputs {
+.contenedor-principal {
   height: 100%;
-  background-color: rgba(245, 245, 245, 0.712);
-  padding: 5px;
-  border-radius: 10px;
-  
-  .contenedor-estado {
-    background-color: white;
+    overflow: hidden;
     display: grid;
-    float: left;
-    grid-template-columns: 255px 1fr;
-    grid-template-areas: "check boton";
+    grid-template-rows: 1fr 50px;
+    background-color:  rgba(255, 255, 255, 0.863);
+    border-radius: 5px;
+    padding: 5px 10px;
+  .contenedor-inputs {
+    height: 100%;
+    background-color: rgba(245, 245, 245, 0.712);
+    padding: 5px;
     border-radius: 10px;
-
-    padding: auto;
-    .contenedor-check {
-      height: 100%;
-      grid-area: check;
-      padding-left: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .contenedor-estado {
+      background-color: white;
+      display: grid;
+      float: left;
+      grid-template-columns: 235px 1fr;
+      grid-template-areas: "check boton";
       border-radius: 10px;
-    }
-    .boton {
-      height: 100%;
-      grid-area: boton;
-    }
-  }
-  .buscar {
-      
-    margin-top: 400px;
-    /*margin-left: 0.5fr;
-    width: 150px;*/
-    text-align: center;
-    
-    .boton_Buscar{
-      width: 100%;
 
+      padding: auto;
+      .contenedor-check {
+        height: 100%;
+        grid-area: check;
+        padding-left: 5px;
+        border-radius: 10px;
+      }
+      .boton {
+        height: 100%;
+        grid-area: boton;
+      }
     }
+    
+    }
+    .buscar {
+      display: flex;
+      justify-content: right;
+      align-items: flex-end;
+
+      .boton_Buscar {
+        width: 100%;
+      }
   }
 }

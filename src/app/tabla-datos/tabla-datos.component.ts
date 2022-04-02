@@ -25,7 +25,7 @@ export class TablaDatosComponent implements OnInit {
   }
 
   extraerfecha(fecha: String) {
-    let fecha_extraida = fecha.substring(9, 10);
+    let fecha_extraida = fecha.substring(8, 10);
     let mes_numero = fecha.substring(5, 7);
     console.log(mes_numero);
     switch (mes_numero) {
