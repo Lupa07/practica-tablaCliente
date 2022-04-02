@@ -1,5 +1,6 @@
 .contenedor-datos {
   height: 100%;
+  overflow-y: hidden;
   display: grid;
   grid-template-rows: 1fr 42px;
   grid-template-areas: "tabla" "pie";
@@ -8,7 +9,7 @@
   .contenedor-tabla {
     height: 100%;
     grid-area: tabla;
-
+    overflow-y: auto;
     .table {
       text-align: center;
 
@@ -127,10 +128,10 @@
     grid-area: pie;
     display: flex;
     flex-direction: row;
-    align-items:flex-start;
+    align-items: flex-start;
     justify-content: space-between;
 
-    p{
+    p {
       padding-left: 10px;
     }
     .contenedor-paginacion {
@@ -139,7 +140,38 @@
       height: 35px;
       align-items: center;
       justify-content: center;
-      
     }
+  }
+  .contenedor-tabla::-webkit-scrollbar {
+    width: 8px; /* Tamaño del scroll en vertical */
+    height: 8px; /* Tamaño del scroll en horizontal */
+    display: auto; /* Ocultar scroll */
+  }
+
+  .contenedor-tabla::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+
+  /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+  .contenedor-tabla::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Cambiamos el fondo cuando esté en active */
+  .contenedor-tabla::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+  }
+
+  .contenedor-tabla::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+  }
+
+  /* Cambiamos el fondo cuando esté en active o hover */
+  .contenedor-tabla::-webkit-scrollbar-track:hover,
+  .contenedor-tabla::-webkit-scrollbar-track:active {
+    background: #d4d4d4;
   }
 }
