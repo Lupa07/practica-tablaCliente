@@ -59,8 +59,9 @@
       type="text"
       placeholder="Fecha"
       class="form-control"
+      
       bsDaterangepicker
-      [bsConfig]="{ isAnimated: true }"
+      [bsConfig]="{containerClass: 'theme-dark-blue', isAnimated: true }"
       placement="right"
       #fecha
       [(ngModel)]="filtro.fecha"
