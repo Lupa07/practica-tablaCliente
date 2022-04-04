@@ -19,7 +19,7 @@ export class FiltroComponent implements OnInit {
     'referencia':'',
     'tipo':'',
     'fecha':'',
-    'pendiente:boolean' : false,
+    'pendiente: boolean':false,
     'recogiendo:boolean' : false,
     'recogida:boolean' : false,
     'desconsolidando:boolean ': false,
@@ -46,21 +46,23 @@ export class FiltroComponent implements OnInit {
     this.filtro_datos=[];
     this.filtro_datos=this.filtro;
     this.buscarFiltro.emit(this.filtro_datos);
+    
     this.filtro={
       'cliente': '',
       'usuario': '',
       'referencia':'',
       'tipo':'',
       'fecha':'',
-      'pendiente:boolean' : false,
-      'recogiendo:boolean' : false,
-      'recogida:boolean' : false,
-      'desconsolidando:boolean ': false,
-      'desconsolidada:boolean' : false,
-      'entregada:boolean' :false,
-      'incidencia:boolean' : false
+      'pendiente':false,
+      'recogiendo': false,
+      'recogida': false,
+      'desconsolidando': false,
+      'desconsolidada' : false,
+      'entregada' :false,
+      'incidencia' : false
   
     };
+    
 
     
   }

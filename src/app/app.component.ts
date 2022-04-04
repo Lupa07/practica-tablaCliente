@@ -125,21 +125,17 @@ export class AppComponent implements OnInit {
 
   cargarDatos() {
     this.datosAmandar = [];
-    console.log('antes del for')
+   
     for (let i = 0; i <= this.datos.length; i++) {
-      console.log(this.datos[i].alias_cliente)
+      
       if (this.datos[i].alias_cliente.toLowerCase().indexOf(this.filtrado.cliente.toLowerCase()) >= 0) {
         if (this.datos[i].usuario.toLowerCase().indexOf(this.filtrado.usuario.toLowerCase()) >= 0) {
           if (this.datos[i].referencia.toLowerCase().indexOf(this.filtrado.referencia.toLowerCase()) >= 0) {
             if(this.datos[i].tipo.toLowerCase().indexOf(this.filtrado.tipo.toLowerCase())>=0){
-              
-                
-            this.datosAmandar.push(this.datos[i])
-              
-                
-              
-              
-              
+              if(this.filtraEstado(this.datos[i].estado)){
+                this.datosAmandar.push(this.datos[i])
+              }
+           
             }
             
           }
@@ -148,6 +144,52 @@ export class AppComponent implements OnInit {
     }
   }
   
+  filtraEstado(estado:string){
+  
+    if(this.filtrado.pendiente){
+ 
+      if(estado.toLowerCase()=="pendiente"){
+        
+        return true
+      }
+    }
+
+    if(this.filtrado.recogiendo){
+      if(estado.toLowerCase()=='recogiendo'){
+        return true
+      }
+    }
+    if(this.filtrado.recogida){
+      if(estado.toLowerCase()=='recogida'){
+        return true;
+      }
+    }
+    if(this.filtrado.desconsolidando){
+      if(estado.toLowerCase()=='desconsolidando'){
+        return true
+      }
+    }
+    if(this.filtrado.desconsolidada){
+      if(estado.toLowerCase()=='desconsolidada'){
+        return true
+      }
+    }
+    if(this.filtrado.entregada){
+      if(estado.toLowerCase()=='entregada'){
+        return true
+      }
+    }
+    if(this.filtrado.incidencia){
+      if(estado.toLowerCase()=='incidencia'){
+        return true;
+      }
+    }
+    if(!this.filtrado.pendiente && !this.filtrado.recogiendo && !this.filtrado.recogida && !this.filtrado.desconsolidando && !this.filtrado.desconsolidada && !this.filtrado.entregada && !this.filtrado.incidencia){
+      return true;
+    }
+
+    return false;
+  }
  
 }
   
