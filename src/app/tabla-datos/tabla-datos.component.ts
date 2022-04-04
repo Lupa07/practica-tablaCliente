@@ -48,22 +48,22 @@ export class TablaDatosComponent implements OnInit {
         fecha_extraida = fecha_extraida + ' junio';
         break;
       case '07':
-        fecha_extraida = fecha_extraida + ' julio';
+        fecha_extraida = fecha_extraida + ' jul.';
         break;
       case '08':
-        fecha_extraida = fecha_extraida + ' sept';
+        fecha_extraida = fecha_extraida + ' ago.';
         break;
       case '09':
-        fecha_extraida = fecha_extraida + ' oct';
+        fecha_extraida = fecha_extraida + ' sep.';
         break;
       case '10':
-        fecha_extraida = fecha_extraida + ' nov';
+        fecha_extraida = fecha_extraida + ' oct.';
         break;
       case '11':
-        fecha_extraida = fecha_extraida + ' dic';
+        fecha_extraida = fecha_extraida + ' nov.';
         break;
       case '12':
-        fecha_extraida = fecha_extraida + ' enero';
+        fecha_extraida = fecha_extraida + ' dic.';
         break;
     }
     fecha_extraida = fecha_extraida + ' ' + fecha.substring(2, 4);

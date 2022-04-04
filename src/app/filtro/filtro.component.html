@@ -90,13 +90,13 @@
   <label for="estado">Estado:</label> <br />
   <div class="contenedor-estado">
     <div class="contenedor-check">
-      <input type="checkbox" #check [(ngModel)]="filtro.pendiente"/>Pendinte <br />
-      <input type="checkbox" #check [(ngModel)]="filtro.recogiendo"/>Recogiendo<br />
-      <input type="checkbox" #check [(ngModel)]="filtro.recogida"/>Recogida<br />
-      <input type="checkbox" #check [(ngModel)]="filtro.desconsolidando"/>Desconsolidando<br />
-      <input type="checkbox" #check [(ngModel)]="filtro.desconsolidada"/>Desconsolidada<br />
-      <input type="checkbox" #check [(ngModel)]="filtro.entregada"/>Entregada<br />
-      <input type="checkbox" #check [(ngModel)]="filtro.incidencia"/>Incidencia<br />
+      <input type="checkbox"  id="pendiente" #check [(ngModel)]="filtro.pendiente"/><label for="pendiente">Pendinte</label>  <br />
+      <input type="checkbox" id="recogiendo" #check [(ngModel)]="filtro.recogiendo"/> <label for="recogiendo">Recogiendo</label> <br />
+      <input type="checkbox" id="recogida" #check [(ngModel)]="filtro.recogida"/><label for="recogida">Recogida</label> <br />
+      <input type="checkbox" id="desconsolidando" #check [(ngModel)]="filtro.desconsolidando"/><label for="desconsolidando">Desconsolidando</label><br />
+      <input type="checkbox" id="desconsolidada" #check [(ngModel)]="filtro.desconsolidada"/><label for="desconsolidada">Desconsolidada</label><br />
+      <input type="checkbox" id="entregada" #check [(ngModel)]="filtro.entregada"/><label for="entregada">Entregada</label><br />
+      <input type="checkbox" id="incidencia" #check [(ngModel)]="filtro.incidencia"/><label for="incidencia">Incidencia</label><br />
     </div>
     <div class="input-group-append boton">
       <button class="btn btn-outline-danger vaciar" type="button" (click)="

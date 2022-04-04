@@ -7,11 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'practica-tablaCliente';
-  
 
-  ngOnInit(): void {
-    this.datosAmandar = this.datos;
-  }
   datos: any = [
     { "id": "1", "referencia": "02108", "logo": "https://logistics.beateam.es/azurglobal/storage/250/MTC.png", "usuario": "Morillo", "observacion": "", "cantidad": "1", "estado": "Entregada", "fecha": "2021-09-29 00:51:39", "tipo": "Mesa", "codigo_cliente": "287.10", "alias_cliente": "POLIVISO VISO" },
     { "id": "2", "referencia": "KDP457490", "logo": "https://logistics.beateam.es/azurglobal/storage/269/SNR.png", "usuario": "Morillo", "observacion": "407-L", "cantidad": "2", "estado": "Pendiente", "fecha": "2021-09-11 09:25:08", "tipo": "Ruta", "codigo_cliente": "257.10", "alias_cliente": "TURECAMBIO" },
@@ -113,83 +109,121 @@ export class AppComponent implements OnInit {
   ]
   filtrado: any;
   datosAmandar: any = []
-  
+
+
+  ngOnInit(): void {
+    this.ordenarPorFecha(this.datos)
+    this.datosAmandar = this.datos;
+  }
+
+  ordenarPorFecha(datos: any[]) {
+   
+    datos.sort(function (dato1,dato2) {
+      if (dato1.fecha < dato2.fecha) {
+        return -1
+      } else if (dato1.fecha > dato2.fecha) {
+        return 1
+      } else {
+        return 0
+      }
+    })
+  }
+
+
+
+
 
   buscarFiltroMaestro(buscarFiltro: any) {
     this.filtrado = Object.assign({}, buscarFiltro);
-    console.log(this.filtrado);
     this.cargarDatos();
-    console.log(this.datosAmandar)
 
   }
 
   cargarDatos() {
     this.datosAmandar = [];
-   
+
     for (let i = 0; i <= this.datos.length; i++) {
-      
+
       if (this.datos[i].alias_cliente.toLowerCase().indexOf(this.filtrado.cliente.toLowerCase()) >= 0) {
         if (this.datos[i].usuario.toLowerCase().indexOf(this.filtrado.usuario.toLowerCase()) >= 0) {
           if (this.datos[i].referencia.toLowerCase().indexOf(this.filtrado.referencia.toLowerCase()) >= 0) {
-            if(this.datos[i].tipo.toLowerCase().indexOf(this.filtrado.tipo.toLowerCase())>=0){
-              if(this.filtraEstado(this.datos[i].estado)){
-                this.datosAmandar.push(this.datos[i])
+            if (this.datos[i].tipo.toLowerCase().indexOf(this.filtrado.tipo.toLowerCase()) >= 0) {
+              if (this.filtraEstado(this.datos[i].estado)) {
+                if (this.filtraFecha(this.datos[i].fecha)) {
+                  this.datosAmandar.push(this.datos[i])
+                }
+
               }
-           
+
             }
-            
+
           }
         }
-      } 
+      }
     }
   }
-  
-  filtraEstado(estado:string){
-  
-    if(this.filtrado.pendiente){
- 
-      if(estado.toLowerCase()=="pendiente"){
-        
+  filtraFecha(fecha: string) {
+    console.log("dentro filtro fecha")
+    let fechaDatos = new Date(fecha)
+    console.log(fechaDatos)
+    if (this.filtrado.fecha.length === 0) {
+      console.log('dentro de if de filtrar fecha')
+      return true
+    } else {
+      console.log('dentro de else de filtrar fecha')
+      if (this.filtrado.fecha[0] <= fechaDatos && this.filtrado.fecha[1] >= fechaDatos) {
+        console.log('dentro de if del else de arriba')
+        return true
+      }
+
+    }
+    return false
+  }
+  filtraEstado(estado: string) {
+
+    if (this.filtrado.pendiente) {
+
+      if (estado.toLowerCase() == "pendiente") {
+
         return true
       }
     }
 
-    if(this.filtrado.recogiendo){
-      if(estado.toLowerCase()=='recogiendo'){
+    if (this.filtrado.recogiendo) {
+      if (estado.toLowerCase() == 'recogiendo') {
         return true
       }
     }
-    if(this.filtrado.recogida){
-      if(estado.toLowerCase()=='recogida'){
+    if (this.filtrado.recogida) {
+      if (estado.toLowerCase() == 'recogida') {
         return true;
       }
     }
-    if(this.filtrado.desconsolidando){
-      if(estado.toLowerCase()=='desconsolidando'){
+    if (this.filtrado.desconsolidando) {
+      if (estado.toLowerCase() == 'desconsolidando') {
         return true
       }
     }
-    if(this.filtrado.desconsolidada){
-      if(estado.toLowerCase()=='desconsolidada'){
+    if (this.filtrado.desconsolidada) {
+      if (estado.toLowerCase() == 'desconsolidada') {
         return true
       }
     }
-    if(this.filtrado.entregada){
-      if(estado.toLowerCase()=='entregada'){
+    if (this.filtrado.entregada) {
+      if (estado.toLowerCase() == 'entregada') {
         return true
       }
     }
-    if(this.filtrado.incidencia){
-      if(estado.toLowerCase()=='incidencia'){
+    if (this.filtrado.incidencia) {
+      if (estado.toLowerCase() == 'incidencia') {
         return true;
       }
     }
-    if(!this.filtrado.pendiente && !this.filtrado.recogiendo && !this.filtrado.recogida && !this.filtrado.desconsolidando && !this.filtrado.desconsolidada && !this.filtrado.entregada && !this.filtrado.incidencia){
+    if (!this.filtrado.pendiente && !this.filtrado.recogiendo && !this.filtrado.recogida && !this.filtrado.desconsolidando && !this.filtrado.desconsolidada && !this.filtrado.entregada && !this.filtrado.incidencia) {
       return true;
     }
 
     return false;
   }
- 
+
 }
-  

@@ -18,7 +18,7 @@ export class FiltroComponent implements OnInit {
     'usuario': '',
     'referencia':'',
     'tipo':'',
-    'fecha':'',
+    'fecha':[],
     'pendiente: boolean':false,
     'recogiendo:boolean' : false,
     'recogida:boolean' : false,
@@ -34,15 +34,16 @@ export class FiltroComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
     this.filtro_datos=this.datos_tabla;
   }
 
-  vaciar(){
 
-  }
 
   buscar(){
-    console.log(this.filtro.cliente)
+   
+    console.log(this.filtro.fecha[0], 'posicion 0 en funcion buscar')
+    console.log(this.filtro.fecha[1], 'posicion 1 en funcion buscar')
     this.filtro_datos=[];
     this.filtro_datos=this.filtro;
     this.buscarFiltro.emit(this.filtro_datos);
@@ -52,7 +53,7 @@ export class FiltroComponent implements OnInit {
       'usuario': '',
       'referencia':'',
       'tipo':'',
-      'fecha':'',
+      'fecha':[],
       'pendiente':false,
       'recogiendo': false,
       'recogida': false,
