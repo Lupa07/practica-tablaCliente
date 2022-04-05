@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Tarea } from './models/tarea.model';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'practica-tablaCliente';
 
-  datos: any = [
+  datos: any[] = [
     { "id": "1", "referencia": "02108", "logo": "https://logistics.beateam.es/azurglobal/storage/250/MTC.png", "usuario": "Morillo", "observacion": "", "cantidad": "1", "estado": "Entregada", "fecha": "2021-09-29 00:51:39", "tipo": "Mesa", "codigo_cliente": "287.10", "alias_cliente": "POLIVISO VISO" },
     { "id": "2", "referencia": "KDP457490", "logo": "https://logistics.beateam.es/azurglobal/storage/269/SNR.png", "usuario": "Morillo", "observacion": "407-L", "cantidad": "2", "estado": "Pendiente", "fecha": "2021-09-11 09:25:08", "tipo": "Ruta", "codigo_cliente": "257.10", "alias_cliente": "TURECAMBIO" },
     { "id": "3", "referencia": "15972", "logo": "https://logistics.beateam.es/azurglobal/storage/357/FARE.png", "usuario": "Luismi", "observacion": "407-L", "cantidad": "1", "estado": "Pendiente", "fecha": "2021-09-29 03:06:16", "tipo": "Ruta", "codigo_cliente": "257.10", "alias_cliente": "TURECAMBIO" },
@@ -108,12 +109,13 @@ export class AppComponent implements OnInit {
     { "id": "100", "referencia": "3182654146", "logo": "https://logistics.beateam.es/azurglobal/storage/263/SAC.png", "usuario": "Froldan", "observacion": "ALEJANDRO----DEJAR FALCON", "cantidad": "1", "estado": "Pendiente", "fecha": "2021-09-10 06:29:35", "tipo": "Mesa", "codigo_cliente": "303.10", "alias_cliente": "SURTRES (SEVILLA)" }
   ]
   filtrado: any;
-  datosAmandar: any = []
-
+  datosAmandar: Tarea[] = []
+  tareas: Tarea[]=[]
 
   ngOnInit(): void {
-    this.ordenarPorFecha(this.datos)
-    this.datosAmandar = this.datos;
+    this.datos.forEach( (s) => {this.tareas.push(new Tarea(s))} );
+    this.ordenarPorFecha(this.tareas)
+    this.datosAmandar = this.tareas;
   }
 
   ordenarPorFecha(datos: any[]) {

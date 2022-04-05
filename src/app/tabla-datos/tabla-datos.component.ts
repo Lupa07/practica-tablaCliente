@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Tarea } from '../models/tarea.model';
 
 @Component({
   selector: 'app-tabla-datos',
@@ -8,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 export class TablaDatosComponent implements OnInit {
 
-  @Input () datos_tabla:any;
+  @Input () datos_tabla:Tarea[]=[];
   public page: number=0;
   
 
@@ -16,15 +17,15 @@ export class TablaDatosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
+    console.log(new Tarea(this.datos_tabla[0]).extraerhora());
   }
 
-  extraerhora(fecha: String) {
+ /* extraerhora(fecha: String) {
     let hora_extraida = fecha.substring(11, 16);
     return hora_extraida;
-  }
+  }*/
 
-  extraerfecha(fecha: String) {
+ /* extraerfecha(fecha: String) {
     let fecha_extraida = fecha.substring(8, 10);
     let mes_numero = fecha.substring(5, 7);
     console.log(mes_numero);
@@ -68,7 +69,7 @@ export class TablaDatosComponent implements OnInit {
     }
     fecha_extraida = fecha_extraida + ' ' + fecha.substring(2, 4);
     return fecha_extraida;
-  }
+  }*/
 
   
   

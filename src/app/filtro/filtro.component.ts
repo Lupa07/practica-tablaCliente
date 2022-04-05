@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Tarea } from '../models/tarea.model';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 export class FiltroComponent implements OnInit {
   
-  @Input () datos_tabla:any;
+  @Input () datos_tabla:Tarea []=[];
   @Output() buscarFiltro = new EventEmitter<any>();
   filtro:any = {
     'cliente': '',

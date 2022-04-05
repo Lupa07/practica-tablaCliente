@@ -20,7 +20,7 @@
         "
       >
         <td class="imagen">
-          <img class="logo_marca" src="{{ item.logo }}" alt="logo" />
+          <img class="logo_marca" src="{{item.logo}}" alt="logo" />
         </td>
         <td class="izquierda">{{ item.referencia }}</td>
         <td
@@ -60,8 +60,8 @@
           <label class="desconsolidada">{{ item.estado }}</label>
         </ng-template>
         <td class="fecha">
-          <strong>{{ extraerhora(item.fecha) }}</strong>
-          {{ extraerfecha(item.fecha) }}
+           <strong>{{ item.extraerhora() }}</strong>
+          {{ (item.extraerfecha()) }} 
         </td>
         <td *ngIf="item.tipo === 'Mesa'; else ruta">
           <label for="" class="mesa">M</label>
@@ -74,10 +74,11 @@
       </tr>
     </table>
   </div>
+  {{datos_tabla[0].extraerhora()}}
   <div class="contenedor-pie">
     
       <p>Lineas: {{ datos_tabla.length }}</p>
-    
+     
       <div class="paginacion">
       <pagination-controls class="contenedor-paginacion"
         (pageChange)="page = $event"
