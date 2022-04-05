@@ -13,7 +13,7 @@ import { Tarea } from '../models/tarea.model';
 export class FiltroComponent implements OnInit {
   
   @Input () datos_tabla:Tarea []=[];
-  @Output() buscarFiltro = new EventEmitter<any>();
+  @Output() buscarFiltro = new EventEmitter<Tarea>();
   filtro:any = {
     'cliente': '',
     'usuario': '',

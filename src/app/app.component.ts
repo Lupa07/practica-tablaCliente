@@ -146,13 +146,13 @@ export class AppComponent implements OnInit {
 
     for (let i = 0; i <= this.datos.length; i++) {
 
-      if (this.datos[i].alias_cliente.toLowerCase().indexOf(this.filtrado.cliente.toLowerCase()) >= 0) {
-        if (this.datos[i].usuario.toLowerCase().indexOf(this.filtrado.usuario.toLowerCase()) >= 0) {
-          if (this.datos[i].referencia.toLowerCase().indexOf(this.filtrado.referencia.toLowerCase()) >= 0) {
-            if (this.datos[i].tipo.toLowerCase().indexOf(this.filtrado.tipo.toLowerCase()) >= 0) {
-              if (this.filtraEstado(this.datos[i].estado)) {
-                if (this.filtraFecha(this.datos[i].fecha)) {
-                  this.datosAmandar.push(this.datos[i])
+      if (this.tareas[i].alias_cliente.toLowerCase().indexOf(this.filtrado.cliente.toLowerCase()) >= 0) {
+        if (this.tareas[i].usuario.toLowerCase().indexOf(this.filtrado.usuario.toLowerCase()) >= 0) {
+          if (this.tareas[i].referencia.toLowerCase().indexOf(this.filtrado.referencia.toLowerCase()) >= 0) {
+            if (this.tareas[i].tipo.toLowerCase().indexOf(this.filtrado.tipo.toLowerCase()) >= 0) {
+              if (this.filtraEstado(this.tareas[i].estado)) {
+                if (this.filtraFecha(this.tareas[i].fecha)) {
+                  this.datosAmandar.push(this.tareas[i])
                 }
 
               }
