@@ -38,7 +38,6 @@ export class Tarea {
     extraerfecha(): string {
         let fecha_extraida = this.fecha.substring(8, 10);
         let mes_numero = this.fecha.substring(5, 7);
-        console.log(mes_numero);
         switch (mes_numero) {
             case '01':
                 fecha_extraida = fecha_extraida + ' enero';

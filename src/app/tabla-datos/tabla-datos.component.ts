@@ -17,7 +17,7 @@ export class TablaDatosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(new Tarea(this.datos_tabla[0]).extraerhora());
+    
   }
 
  /* extraerhora(fecha: String) {
@@ -28,7 +28,6 @@ export class TablaDatosComponent implements OnInit {
  /* extraerfecha(fecha: String) {
     let fecha_extraida = fecha.substring(8, 10);
     let mes_numero = fecha.substring(5, 7);
-    console.log(mes_numero);
     switch (mes_numero) {
       case '01':
         fecha_extraida = fecha_extraida + ' enero';

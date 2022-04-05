@@ -144,7 +144,7 @@ export class AppComponent implements OnInit {
   cargarDatos() {
     this.datosAmandar = [];
 
-    for (let i = 0; i <= this.datos.length; i++) {
+    for (let i = 0; i < this.datos.length; i++) {
 
       if (this.tareas[i].alias_cliente.toLowerCase().indexOf(this.filtrado.cliente.toLowerCase()) >= 0) {
         if (this.tareas[i].usuario.toLowerCase().indexOf(this.filtrado.usuario.toLowerCase()) >= 0) {
@@ -165,16 +165,16 @@ export class AppComponent implements OnInit {
     }
   }
   filtraFecha(fecha: string) {
-    console.log("dentro filtro fecha")
+    
     let fechaDatos = new Date(fecha)
-    console.log(fechaDatos)
+   
     if (this.filtrado.fecha.length === 0) {
-      console.log('dentro de if de filtrar fecha')
+     
       return true
     } else {
-      console.log('dentro de else de filtrar fecha')
+      
       if (this.filtrado.fecha[0] <= fechaDatos && this.filtrado.fecha[1] >= fechaDatos) {
-        console.log('dentro de if del else de arriba')
+        
         return true
       }
 
