@@ -1,5 +1,4 @@
 <div class="contenedor-datos">
-  
   <div class="contenedor-tabla">
     <table class="table">
       <tr class="cabecera_tabla">
@@ -16,7 +15,7 @@
       <tr
         class="elementos_tabla"
         *ngFor="
-          let item of miServ.datos
+          let item of miServ.datosAmandar
             | paginate: { itemsPerPage: 21, currentPage: page }
         "
       >
@@ -78,7 +77,7 @@
   
   <div class="contenedor-pie">
     
-      <p>Lineas: {{ miServ.datos.length }}</p>
+      <p>Lineas: {{ miServ.datosAmandar.length }}</p>
      
       <div class="paginacion">
       <pagination-controls class="contenedor-paginacion"

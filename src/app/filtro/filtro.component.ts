@@ -12,8 +12,8 @@ import { DatosService } from '../services/datos.service';
 
 export class FiltroComponent implements OnInit {
   
-  @Input () datos_tabla:Tarea []=[];
-  @Output() buscarFiltro = new EventEmitter<Tarea>();
+ // @Input () datos_tabla:Tarea []=[];
+ // @Output() buscarFiltro = new EventEmitter<Tarea>();
   
   constructor(public miServ:DatosService){
 
@@ -41,18 +41,21 @@ export class FiltroComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.filtro_datos=this.datos_tabla;
+    //this.filtro_datos=this.datos_tabla;
   }
 
 
 
   buscar(){
-   
-    this.filtro_datos=[];
-    this.filtro_datos=this.filtro;
-    this.buscarFiltro.emit(this.filtro_datos);
+   //this.miServ.filtrado=[];
+   this.miServ.filtrado=this.filtro
+   console.log(this.miServ.filtrado)
+   this.miServ.cargarDatos();
+   // this.filtro_datos=[];
+    //this.filtro_datos=this.filtro;
+   // this.buscarFiltro.emit(this.filtro_datos);
     
-    this.filtro={
+    this.miServ.filtrado={
       'cliente': '',
       'usuario': '',
       'referencia':'',

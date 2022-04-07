@@ -1304,13 +1304,111 @@ export class DatosService {
         },
     ].map((t) => new Tarea(t));
 
-    public index = 0;
 
+    public datosAmandar: Tarea[] = this.datos
 
-    setIndex(i: number) {
-        this.index = i;
-        // this.usuario_modificar = this.usuarios[this.index];
+    public filtrado = {
+        'cliente': '',
+        'usuario': '',
+        'referencia': '',
+        'tipo': '',
+        'fecha': [],
+        'pendiente': false,
+        'recogiendo': false,
+        'recogida': false,
+        'desconsolidando': false,
+        'desconsolidada': false,
+        'entregada': false,
+        'incidencia': false
+
+    };
+
+    cargarDatos() {
+        this.datosAmandar=[]
+        for (let i = 0; i < this.datos.length; i++) {
+
+            if (this.datos[i].alias_cliente.toLowerCase().indexOf(this.filtrado.cliente.toLowerCase()) >= 0) {
+                console.log(this.filtrado.cliente)
+                if (this.datos[i].usuario.toLowerCase().indexOf(this.filtrado.usuario.toLowerCase()) >= 0) {
+                    if (this.datos[i].referencia.toLowerCase().indexOf(this.filtrado.referencia.toLowerCase()) >= 0) {
+                        if (this.datos[i].tipo.toLowerCase().indexOf(this.filtrado.tipo.toLowerCase()) >= 0) {
+                            if (this.filtraEstado(this.datos[i].estado)) {
+                                if (this.filtraFecha(this.datos[i].fecha)) {
+                                    this.datosAmandar.push(this.datos[i]);
+                                    console.log("mareo");
+                                }
+
+                            }
+
+                        }
+
+                    }
+                }
+            }
+        }
     }
 
-    
+    filtraFecha(fecha: string) {
+
+        let fechaDatos = new Date(fecha)
+
+        if (this.filtrado.fecha.length === 0) {
+
+            return true
+        } else {
+
+            if (this.filtrado.fecha[0] <= fechaDatos && this.filtrado.fecha[1] >= fechaDatos) {
+
+                return true
+            }
+
+        }
+        return false
+    }
+    filtraEstado(estado: string) {
+
+        if (this.filtrado.pendiente) {
+
+            if (estado.toLowerCase() == "pendiente") {
+
+                return true
+            }
+        }
+
+        if (this.filtrado.recogiendo) {
+            if (estado.toLowerCase() == 'recogiendo') {
+                return true
+            }
+        }
+        if (this.filtrado.recogida) {
+            if (estado.toLowerCase() == 'recogida') {
+                return true;
+            }
+        }
+        if (this.filtrado.desconsolidando) {
+            if (estado.toLowerCase() == 'desconsolidando') {
+                return true
+            }
+        }
+        if (this.filtrado.desconsolidada) {
+            if (estado.toLowerCase() == 'desconsolidada') {
+                return true
+            }
+        }
+        if (this.filtrado.entregada) {
+            if (estado.toLowerCase() == 'entregada') {
+                return true
+            }
+        }
+        if (this.filtrado.incidencia) {
+            if (estado.toLowerCase() == 'incidencia') {
+                return true;
+            }
+        }
+        if (!this.filtrado.pendiente && !this.filtrado.recogiendo && !this.filtrado.recogida && !this.filtrado.desconsolidando && !this.filtrado.desconsolidada && !this.filtrado.entregada && !this.filtrado.incidencia) {
+            return true;
+        }
+
+        return false;
+    }
 }
