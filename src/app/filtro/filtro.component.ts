@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Tarea } from '../models/tarea.model';
-
+import { DatosService } from '../services/datos.service';
 
 @Component({
   selector: 'app-filtro',
@@ -14,6 +14,11 @@ export class FiltroComponent implements OnInit {
   
   @Input () datos_tabla:Tarea []=[];
   @Output() buscarFiltro = new EventEmitter<Tarea>();
+  
+  constructor(public miServ:DatosService){
+
+  }
+
   filtro:any = {
     'cliente': '',
     'usuario': '',
@@ -32,7 +37,7 @@ export class FiltroComponent implements OnInit {
   };
  filtro_datos:any;
  
-  constructor() { }
+  
 
   ngOnInit(): void {
     

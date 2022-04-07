@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Tarea } from '../models/tarea.model';
+import { DatosService } from '../services/datos.service';
 
 @Component({
   selector: 'app-tabla-datos',
@@ -14,7 +15,9 @@ export class TablaDatosComponent implements OnInit {
   
 
   
-  constructor() { }
+  constructor(public miServ:DatosService){
+
+  }
 
   ngOnInit(): void {
     
