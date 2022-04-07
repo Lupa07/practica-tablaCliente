@@ -4,10 +4,10 @@
   </div>
   <div class="contenedor-cuerpo">
     <div class="contenedor-filtro">
-      <app-filtro [datos_tabla]="datos" (buscarFiltro)="buscarFiltroMaestro($event)"></app-filtro>
+      <app-filtro  (buscarFiltro)="buscarFiltroMaestro($event)"></app-filtro>
     </div>
     <div class="contenedor-tabla-datos">
-      <app-tabla-datos [datos_tabla]="datosAmandar" ></app-tabla-datos>
+      <app-tabla-datos ></app-tabla-datos>
     </div>
   </div>
 </div>

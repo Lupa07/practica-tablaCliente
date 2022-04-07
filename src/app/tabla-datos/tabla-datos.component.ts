@@ -10,7 +10,7 @@ import { DatosService } from '../services/datos.service';
 
 export class TablaDatosComponent implements OnInit {
 
-  @Input () datos_tabla:Tarea[]=[];
+ // @Input () datos_tabla:Tarea[]=[];
   public page: number=0;
   
 

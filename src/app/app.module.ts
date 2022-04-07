@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { PopoverModule } from 'ngx-bootstrap/popover'; 
 import { FormsModule } from '@angular/forms';
+import { DatosService } from './services/datos.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,7 @@ import { FormsModule } from '@angular/forms';
     
     
   ],
-  providers: [],
+  providers: [DatosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

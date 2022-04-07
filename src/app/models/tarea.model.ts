@@ -2,7 +2,7 @@ import { DatosService } from "../services/datos.service";
 export class Tarea {
     push(arg0: Tarea){
         throw new Error('Method not implemented.');
-    }
+    } 
     public id: string;
     public referencia: string;
     public logo: string;
